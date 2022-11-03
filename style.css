@@ -1,0 +1,322 @@
+
+:root {
+    --primary-color: #000;
+    --secondary-color: #fff;
+    --default-column: rgba(205, 216, 228, 0);
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    transition: all 0.5s ease-in;
+}
+
+html.dark {
+    --primary-color: #fff;
+    --secondary-color: #333;
+}
+
+html.dark {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+  /*****************************/
+
+#page {
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--secondary-color);
+    display: grid;
+    grid-template-areas: 'header header header header header' 'leftcol leftdragbar tabs tabs tabs' 'leftcol leftdragbar tabpages rightdragbar rightcol' 'leftcol leftdragbar footer footer footer';
+    grid-template-rows: min-content 1fr 9fr 1fr;
+    grid-template-columns: 2fr 6px 6fr 6px 2fr;
+  }
+
+  #header {
+    background-color: lightblue;
+    overflow: auto;
+    grid-area: header;
+  }
+  
+  #leftcol {
+    background-color: var(--default-column);
+    overflow: auto;
+    grid-area: leftcol;
+  }
+  
+  #leftdragbar {
+    background-color: black;
+    grid-area: leftdragbar;
+    cursor: col-resize;
+  }
+  
+  #tabs {
+    background-color: #cccccc;
+    overflow: auto;
+    grid-area: tabs;
+  }
+  
+  #tabpages {
+    background-color: #888888;
+    overflow: auto;
+    grid-area: tabpages;
+    text-align: center;
+    padding: 0 40px;
+  }
+  
+  #rightdragbar {
+    background-color: black;
+    grid-area: rightdragbar;
+    cursor: col-resize;
+  }
+  
+  #rightcol {
+    background-color: var(--default-column);
+    justify-content: center;
+    overflow: auto;
+    grid-area: rightcol;
+  }
+  
+  #footer {
+    background-color: lightblue;
+    overflow: auto;
+    grid-area: footer;
+  }
+
+  /* Decision Maker */
+
+.decision-maker-container {
+    text-align: center;
+    margin: 0px;
+    padding-bottom: 20px;
+    border-bottom: dashed #aaa 1px;
+    background-color: transparent;
+}
+
+  .decision-maker-container h3 {
+    color: var(--secondary-color);
+    font-size: 1.4rem;      
+    letter-spacing: .2rem;
+    margin: 0;
+    padding: 20px 0;
+    text-shadow: var(--primary-color) 1px 1px 4px;
+}
+
+textarea {
+    border: var(--primary-color);
+    opacity: .6;
+    display: block;
+    width: 100%;
+    height: 100px;
+    font-family: inherit;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.tag {
+    background-color: rgba(9, 134, 107, 0.842);
+    border: solid 1px rgb(5, 92, 66);
+    color: rgb(211, 179, 0);
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin: 0 5px 10px 0;
+    font-size: 16px;
+    font-style: italic;
+    display: inline-block;
+}
+
+.tag.highlight {
+    filter: hue-rotate(90deg);    
+}
+
+/* Clock */
+
+.toggle {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: 0;
+    border-radius: 4px;
+    padding: 0px;
+    margin: 6px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-color);
+    padding-bottom: 30px;
+    border-bottom: dashed #aaa 1px;
+}
+
+.clock {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.needle {
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 30px;
+    width: 3px;
+    transform-origin: bottom center;
+}
+
+.needle.hour {
+    transform: translate(-50%, -100%) rotate(0deg);
+    transition: all 0.5s ease-in;
+}
+
+.needle.minute {
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 60px;
+    outline: #eb3e2b solid 0.1px;
+}
+
+.needle.second {
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 60px;
+    background-color: #eb3e2b;
+}
+
+.center-point {
+    background-color: #eb3e2b;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.center-point::after {
+    content: '';
+    background-color: var(--primary-color);
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.time {
+    font-size: 32px;
+}
+
+.date {
+    color: rgb(138, 138, 138);
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+.date .circle {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2px;
+    line-height: 18px;
+    transition: all 0.5s ease-in;
+    font-size: 12px;
+}
+
+/* TODO List Cosas Hacer */
+.checklist-container {
+    padding: 30px 20px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border-bottom: dashed #aaa 1px;
+}
+
+#checklist-title {
+    color: var(--primary-color);
+    font-size: 2rem;
+    text-align: center;
+    opacity: 0.85;
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+form {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    width: 400px;
+    display: inline;
+    text-align: center;
+}
+
+.input {
+    border: none;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    opacity: .6;
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+    display: block;
+    width: 100%;
+}
+
+.input::placeholder {
+    color: var(--primary-color);
+    opacity: .5;
+}
+
+.input:focus {
+    outline-color: rgb(102, 233, 189);
+}
+
+.todos {
+    background-color: var(--secondary-color);
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.todos li {
+    border-top: 1px solid #e5e5e5;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+}
+
+.todos li.completed {
+    color: #b6b6b6;
+    text-decoration: line-through;
+}
+
+small {
+    color: #b5b5b5;
+    font-size: 1rem;
+    margin-top: 3rem;
+    text-align: center;
+}

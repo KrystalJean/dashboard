@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>KAUSTIN Dashboard</title>
+</head>
+
+<body onresize="ResetColumnSizes()">
+    <div id="page" onmouseup="EndDrag()" onmousemove="OnDrag(event)">
+        <div id="header">
+            Header
+        </div>
+
+        <div id="leftcol">
+
+            <!-- Decision Maker -->
+            <div class="decision-maker-container">
+                <h3>Decision Maker</h3>
+                <textarea placeholder="Enter choices here. . ." id="textarea"></textarea>
+
+                <div id="tags">
+                    <span class="tag">Choice 1</span>
+                    <span class="tag">Choice 2</span>
+                    <span class="tag">Choice 3</span>
+                </div>
+            </div>
+            <!-- *******END******* -->
+
+        </div>
+
+        <div id="leftdragbar" onmousedown="StartLeftDrag()"></div>
+
+        <div id="tabs">
+            Tabs
+        </div>
+
+        <div id="tabpages">
+
+            tab pages
+        </div>
+
+        <div id="rightdragbar" onmousedown="StartRightDrag()"></div>
+
+        <div id="rightcol">
+
+            <!-- Theme Clock -->
+            <button class="toggle">🌜</button>
+            <div class="clock-container">
+                <div class="clock">
+                    <div class="needle hour"></div>
+                    <div class="needle minute"></div>
+                    <div class="needle second"></div>
+                    <div class="center-point "></div>
+                </div>
+                <div class="time"></div>
+                <div class="date"></div>
+            </div>
+
+            <!-- ToDo List -->
+            <div class="checklist-container">
+                <h4 id="checklist-title">Checklist</h4>
+                <form id="form">
+                    <input type="text" class="input" id="input" placeholder="enter task" autocomplete="off">
+                    <ul class="todos" id="todos"></ul>
+                </form>
+                <small>
+                    <div style="color:lightgreen; display: inline;">&#9745;</div> Left click to complete.
+
+                    <div style="color: lightcoral; display: inline">&#9746;</div> Right click to delete.
+                </small>
+            </div>
+
+        </div>
+
+        <div id="footer">
+            Footer
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
