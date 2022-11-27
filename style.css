@@ -75,7 +75,11 @@ body {
     overflow: auto;
     grid-area: tabpages;
     text-align: center;
-    padding: 0 40px;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
   }
   
   #rightdragbar {
