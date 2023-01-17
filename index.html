@@ -20,35 +20,6 @@
 
         <div id="leftcol">
 
-            <!-- Decision Maker -->
-            <div class="decision-maker-container">
-                <h3>Decision Maker</h3>
-                <textarea placeholder="Enter choices here. . ." id="textarea"></textarea>
-
-                <div id="tags">
-                    <span class="tag">Choice 1</span>
-                    <span class="tag">Choice 2</span>
-                    <span class="tag">Choice 3</span>
-                </div>
-            </div>
-            <!-- *******END******* -->
-
-        </div>
-
-        <div id="leftdragbar" onmousedown="StartLeftDrag()"></div>
-
-        <div id="tabs">
-            Tabs
-        </div>
-
-        <div id="tabpages">
-            <iframe id="mole-unearther-frame" src="./mole-unearther/mole-unearther.html" frameborder="0"></iframe>
-        </div>
-
-        <div id="rightdragbar" onmousedown="StartRightDrag()"></div>
-
-        <div id="rightcol">
-
             <!-- Theme Clock -->
             <button class="toggle">🌜</button>
             <div class="clock-container">
@@ -71,10 +42,43 @@
                 </form>
                 <small>
                     <div style="color:lightgreen; display: inline;">&#9745;</div> Left click to complete.
-
+                    <br>
                     <div style="color: lightcoral; display: inline">&#9746;</div> Right click to delete.
                 </small>
             </div>
+
+        </div>
+
+        <div id="leftdragbar" onmousedown="StartLeftDrag()"></div>
+
+        <div id="tabs">
+            <img id="mole-icon" class="tab-icons" src="tab-images/mole-icon.png" alt="mole-icon">
+            <img id="robot-icon" class="tab-icons" src="tab-images/robot-icon.png" alt="mole-icon">
+            <img class="tab-icons" src="tab-images/mole-icon.png" alt="mole-icon">
+            
+        </div>
+
+        <div id="tabpages">
+            <iframe class="game" id="mole-unearther-frame" src="./mole-unearther/mole-unearther.html" frameborder="0"></iframe>
+            <iframe class="hide game" id="chore-door-frame" src="./chore-door/chore-door.html" frameborder="0"></iframe>
+        </div>
+
+        <div id="rightdragbar" onmousedown="StartRightDrag()"></div>
+
+        <div id="rightcol">
+
+            <!-- Decision Maker -->
+            <div class="decision-maker-container">
+                <h3>Decision Maker</h3>
+                <textarea placeholder="Enter choices here. . ." id="textarea"></textarea>
+
+                <div id="tags">
+                    <span class="tag">Choice 1</span>
+                    <span class="tag">Choice 2</span>
+                    <span class="tag">Choice 3</span>
+                </div>
+            </div>
+            <!-- *******END******* -->
 
         </div>
 

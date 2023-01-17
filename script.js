@@ -267,3 +267,37 @@ function updateLS() {
 
     localStorage.setItem('todos', JSON.stringify(todos))
 }
+
+//Game icons change the game
+
+// const mole = document.getElementById('mole-icon');
+// const robot = document.getElementById('robot-icon');
+// const moleGame = document.getElementById('mole-unearther-frame');
+// const robotGame = document.getElementById('chore-door-frame');
+const games = document.querySelectorAll('.game');
+const icons = document.querySelectorAll('.tab-icons');
+
+function hide() {
+    games.forEach((game) => {
+        game.classList.add('hide');
+    })
+}
+
+for(let i=0; i <= games.length; i++) {
+    icons[i].addEventListener('click', () => {
+        hide();
+        games[i].classList.remove('hide');
+    })
+}
+
+
+// mole.addEventListener('click', () => {
+//     hide();
+//     moleGame.classList.remove('hide');
+// })
+
+// robot.addEventListener('click', () => {
+//     hide();
+//     robotGame.classList.toggle('hide');
+// })
+
